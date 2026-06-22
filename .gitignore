@@ -1,0 +1,23 @@
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# References (Local only)
+Referências/
+Referencias/
+
+# Vercel & Gemini cache
+.vercel/
+.antigravity/
+.gemini/
+*.log
