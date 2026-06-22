@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Mídia Eventos - Organização e Fotografia de Formaturas em Maringá/PR</title>
-    <meta name="description" content="Eternizamos sua conquista com eventos impecáveis, gastronomia de excelência e registros cinematográficos. A melhor organização e fotografia de formaturas em Maringá e região.">
-    <meta name="keywords" content="formaturas Maringá, fotografia formaturas, eventos Maringá, assessoria formaturas, Mídia Eventos">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph (Compartilhamento) -->
-    <meta property="og:title" content="Mídia Eventos - Organização e Fotografia de Formaturas em Maringá/PR">
-    <meta property="og:description" content="Eternizamos sua conquista com eventos impecáveis, gastronomia de excelência e registros cinematográficos.">
-    <meta property="og:image" content="./Assets/Logo/Logotipo.png">
-    <meta property="og:type" content="website">
-    
-    <!-- Favicon -->
+    <title>[PREVIEW] Mídia Eventos — Liquid Glass</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" href="./Assets/Logo/Logotipo.png">
-    
-    <!-- Folha de Estilos Globais -->
+
+    <!-- Folha de Estilos Base -->
     <link rel="stylesheet" href="style.css">
 
     <!-- ============================================================
-         LIQUID GLASS LAYER
+         LIQUID GLASS OVERRIDE LAYER
          Sobrepõe seletivamente os elementos com efeito de vidro fluido.
+         Não altera o style.css original.
     ============================================================ -->
     <style>
         /* ----------------------------------------------------------
@@ -139,6 +128,7 @@
         ---------------------------------------------------------- */
         .social-proof-section {
             background: transparent !important;
+            /* Fundo com camada de glass pura sobre o dark */
             position: relative;
         }
 
@@ -277,6 +267,7 @@
             position: relative;
         }
 
+        /* Orbs decorativos de luz atrás dos cards */
         .testimonials-section::before {
             content: '';
             position: absolute;
@@ -314,6 +305,7 @@
             overflow: hidden;
         }
 
+        /* Brilho sutil no canto superior esquerdo de cada card */
         .testimonial-card::before {
             content: '';
             position: absolute;
@@ -430,6 +422,58 @@
             border-top: 1px solid rgba(255,255,255,0.07) !important;
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.05) !important;
         }
+
+        /* ----------------------------------------------------------
+           PREVIEW BADGE — identificador visual do protótipo
+        ---------------------------------------------------------- */
+        .preview-badge {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(201, 168, 78, 0.4);
+            border-top-color: rgba(255,255,255,0.18);
+            backdrop-filter: blur(16px) saturate(160%);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            border-radius: 100px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(201, 168, 78, 0.9);
+            white-space: nowrap;
+            animation: fadeInUpBlur 0.8s ease forwards;
+        }
+
+        .preview-badge::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #C9A84E;
+            box-shadow: 0 0 8px rgba(201,168,78,0.8);
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+            flex-shrink: 0;
+        }
+
+        .preview-badge a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.65rem;
+            transition: color 0.2s;
+        }
+
+        .preview-badge a:hover {
+            color: rgba(255,255,255,0.9);
+        }
     </style>
 </head>
 <body>
@@ -438,6 +482,12 @@
     <div class="stars-bg"></div>
     <div class="glow-spot-1"></div>
     <div class="glow-spot-2"></div>
+
+    <!-- Badge de Protótipo -->
+    <div class="preview-badge">
+        ✦ Preview — Liquid Glass
+        <a href="index.html">← Versão atual</a>
+    </div>
 
     <!-- Cabeçalho Principal (Header) -->
     <header class="main-header" id="header">
@@ -476,9 +526,9 @@
             <div class="hero-overlay"></div>
             
             <div class="hero-container">
-                <div class="hero-content">
+                <div class="hero-content animate-fade-up">
                     <!-- Badge Animado -->
-                    <div class="hero-badge animate-fade-up">
+                    <div class="hero-badge">
                         <span></span>
                         Maringá e Região
                     </div>
@@ -884,7 +934,6 @@
             </div>
         </div>
 
-
         <div class="footer-bottom">
             <p>&copy; 2026 Mídia Eventos. Todos os direitos reservados. Maringá - PR.</p>
             <div class="developer-credits">
@@ -894,52 +943,9 @@
                 </a>
             </div>
         </div>
-
-
-        <!-- Schema Markup / SEO Local -->
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": "Mídia Eventos",
-          "image": "./Assets/Logo/Logotipo.png",
-          "url": "https://midiaeventos.com.br",
-          "telephone": "+55-44-3031-1000",
-          "priceRange": "$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Brasil, Centro",
-            "addressLocality": "Maringá",
-            "addressRegion": "PR",
-            "postalCode": "87013-000",
-            "addressCountry": "BR"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -23.4209,
-            "longitude": -51.9331
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Maringá e Região"
-          },
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        }
-        </script>
     </footer>
 
-    <!-- Script Geral -->
+    <!-- Script Geral (mesmo do index.html) -->
     <script src="index.js"></script>
 </body>
 </html>
