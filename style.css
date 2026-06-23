@@ -1547,6 +1547,17 @@ h1, h2, h3, h4, h5, h6 {
     .lightbox-nav-btn.next {
         right: 1rem;
     }
+
+    /* Otimizações de Performance Mobile (Desativa backdrop-filter pesado em múltiplos cards simultâneos) */
+    .hero-content, 
+    .authority-card, 
+    .service-card, 
+    .testimonial-card, 
+    .lead-form {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(15, 15, 15, 0.92) !important;
+    }
 }
 
 /* Mobile Pequeno (menor que 480px) */

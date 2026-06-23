@@ -3,29 +3,41 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Efeito do Header e Parallax no Hero ao rolar a página (Unificados para performance)
+    // 1. Efeito do Header e Parallax no Hero ao rolar a página (Otimizado com rAF)
     const header = document.getElementById("header");
     const heroBg = document.querySelector(".hero-background");
+    let ticking = false;
     
     const handleScroll = () => {
-        const scrollY = window.scrollY;
-        
-        // Efeito do Header
-        if (header) {
-            if (scrollY > 50) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        }
-        
-        // Efeito Parallax no fundo Hero (apenas enquanto visível)
-        if (heroBg && scrollY <= window.innerHeight) {
-            heroBg.style.transform = `translateY(${scrollY * 0.35}px) scale(1.15)`;
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                
+                // Efeito do Header
+                if (header) {
+                    if (scrollY > 50) {
+                        header.classList.add("scrolled");
+                    } else {
+                        header.classList.remove("scrolled");
+                    }
+                }
+                
+                // Efeito Parallax no fundo Hero (Apenas desktop/telas grandes para preservar FPS no mobile)
+                if (heroBg) {
+                    if (window.innerWidth > 768 && scrollY <= window.innerHeight) {
+                        heroBg.style.transform = `translateY(${scrollY * 0.35}px) scale(1.15)`;
+                    } else if (window.innerWidth <= 768) {
+                        heroBg.style.transform = "none";
+                    }
+                }
+                
+                ticking = false;
+            });
+            ticking = true;
         }
     };
     
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Executar imediatamente para lidar com refresh de página no meio
 
 
