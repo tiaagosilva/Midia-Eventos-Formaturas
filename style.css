@@ -1421,6 +1421,7 @@ h1, h2, h3, h4, h5, h6 {
     .hero-container {
         padding: 3rem 1.5rem;
         justify-content: center;
+        align-items: center;
     }
 
     .hero-content {
