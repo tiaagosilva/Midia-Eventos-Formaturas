@@ -54,22 +54,24 @@
 
         .avatar-container {
             position: relative;
-            width: 110px;
-            height: 110px;
+            width: 200px;
+            height: 75px;
             margin-bottom: 1.5rem;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, rgba(255, 255, 255, 0.08) 100%);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.16);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .avatar-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: var(--color-dominant);
-            border: 2px solid var(--color-dominant);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .links-title {
