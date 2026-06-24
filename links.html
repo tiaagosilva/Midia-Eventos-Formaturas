@@ -701,36 +701,34 @@
         document.getElementById("year").textContent = new Date().getFullYear();
 
         // Sistema de Animação de Entrada ao Rolar a Página (Scroll Triggers)
-        document.addEventListener("DOMContentLoaded", () => {
-            const initInViewAnimations = () => {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: "0px 0px -10% 0px"
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("animate");
-                            observer.unobserve(entry.target); // Animar apenas uma vez
-                        }
-                    });
-                }, observerOptions);
-
-                document.querySelectorAll(".animate-on-scroll").forEach(el => {
-                    observer.observe(el);
-                });
+        const initInViewAnimations = () => {
+            const observerOptions = {
+                threshold: 0.05,
+                rootMargin: "0px 0px -5% 0px"
             };
 
-            if ('IntersectionObserver' in window) {
-                initInViewAnimations();
-            } else {
-                // Fallback caso navegador não suporte IntersectionObserver
-                document.querySelectorAll(".animate-on-scroll").forEach(el => {
-                    el.classList.add("animate");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target); // Animar apenas uma vez
+                    }
                 });
-            }
-        });
+            }, observerOptions);
+
+            document.querySelectorAll(".animate-on-scroll").forEach(el => {
+                observer.observe(el);
+            });
+        };
+
+        if ('IntersectionObserver' in window) {
+            initInViewAnimations();
+        } else {
+            // Fallback caso navegador não suporte IntersectionObserver
+            document.querySelectorAll(".animate-on-scroll").forEach(el => {
+                el.classList.add("animate");
+            });
+        }
     </script>
 </body>
 </html>
