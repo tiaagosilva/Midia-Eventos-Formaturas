@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Links | Mídia Eventos</title>
+    <meta name="description" content="Acesse todos os canais oficiais, portfólios e formas de contato da Mídia Eventos.">
+    <meta name="keywords" content="formaturas Maringá, fotografia formaturas, eventos Maringá, links Mídia Eventos">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Compartilhamento) -->
+    <meta property="og:title" content="Links | Mídia Eventos">
+    <meta property="og:description" content="Acesse todos os canais oficiais, portfólios e formas de contato da Mídia Eventos.">
+    <meta property="og:image" content="./Assets/Logo/Logotipo.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Assets/Logo/Logotipo.png">
+    
+    <!-- Folha de Estilos Globais -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos específicos da página de Links -->
+    <style>
+        /* Ajuste do layout geral da página */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+        }
+
+        .links-wrapper {
+            width: 100%;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* ----------------------------------------------------------
+           HERO SECTION
+        ---------------------------------------------------------- */
+        .links-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            animation: fadeInUpBlur 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin-bottom: 1.5rem;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, rgba(255, 255, 255, 0.08) 100%);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--color-dominant);
+            border: 2px solid var(--color-dominant);
+        }
+
+        .links-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .links-subtitle {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .links-description {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        /* ----------------------------------------------------------
+           BOTÕES DOS LINKS
+        ---------------------------------------------------------- */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+            animation: fadeInUpBlur 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 1.1rem 1.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-color: rgba(255, 255, 255, 0.16);
+            border-radius: 100px;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.15) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            transition: 0.8s;
+        }
+
+        .link-card:hover::before {
+            left: 150%;
+        }
+
+        .link-card:hover {
+            background: rgba(201, 168, 78, 0.1);
+            border-color: rgba(201, 168, 78, 0.4);
+            border-top-color: rgba(201, 168, 78, 0.6);
+            color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(201, 168, 78, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .link-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            margin-right: 1.25rem;
+            color: var(--color-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-icon-wrapper {
+            transform: scale(1.15);
+        }
+
+        .link-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .link-arrow {
+            width: 14px;
+            height: 14px;
+            fill: rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            fill: var(--color-accent);
+            transform: translateX(3px);
+        }
+
+        /* ----------------------------------------------------------
+           SEÇÃO DE DESTAQUES
+        ---------------------------------------------------------- */
+        .highlights-section {
+            margin-bottom: 3.5rem;
+            text-align: left;
+            animation: fadeInUpBlur 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .highlights-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .highlights-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+            margin: 0.5rem auto 0 auto;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top-color: rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .highlight-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(201, 168, 78, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .highlight-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(201, 168, 78, 0.08);
+            border: 1px solid rgba(201, 168, 78, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-accent);
+        }
+
+        .highlight-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .highlight-card-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .highlight-desc {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            padding-left: 2.5rem;
+        }
+
+        /* ----------------------------------------------------------
+           SEÇÃO DE REDES SOCIAIS
+        ---------------------------------------------------------- */
+        .social-section {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUpBlur 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            color: var(--color-text-primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-btn:hover {
+            background: rgba(201, 168, 78, 0.15);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(201, 168, 78, 0.2);
+        }
+
+        .social-btn .social-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* ----------------------------------------------------------
+           RODAPÉ SIMPLIFICADO
+        ---------------------------------------------------------- */
+        .links-footer {
+            width: 100%;
+            background: rgba(6, 6, 6, 0.85);
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .footer-logo {
+            height: 22px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            max-width: 400px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.5;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 1.25rem;
+        }
+
+        /* ----------------------------------------------------------
+           RESPONSIVIDADE E RETOQUES
+        ---------------------------------------------------------- */
+        @media (min-width: 480px) {
+            .highlights-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .highlight-desc {
+                padding-left: 0;
+                margin-top: 0.5rem;
+            }
+            
+            .highlight-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fundo Estrelado & Luzes Globais (Reutilizado do Site Principal) -->
+    <div class="stars-bg"></div>
+    <div class="glow-spot-1"></div>
+    <div class="glow-spot-2"></div>
+
+    <div class="links-wrapper">
+        <!-- Seção Hero -->
+        <header class="links-hero">
+            <div class="avatar-container">
+                <img src="./Assets/Logo/Logotipo.png" alt="Mídia Eventos" class="avatar-img">
+            </div>
+            <h1 class="links-title">Mídia Eventos</h1>
+            <p class="links-subtitle">Fotografia & Organização de Eventos</p>
+            <p class="links-description">
+                Acesse nossos portfólios, redes sociais, contatos e serviços através dos links abaixo.
+            </p>
+        </header>
+
+        <!-- Seção de Links Principais -->
+        <main class="links-list">
+            
+            <!-- 1. INSTAGRAM -->
+            <!-- COLOQUE A URL DO INSTAGRAM AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Siga no Instagram</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 2. WHATSAPP COMERCIAL -->
+            <!-- COLOQUE A URL DO WHATSAPP AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.25 8.477 3.517 2.266 2.268 3.512 5.282 3.512 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.023-5.116-2.887-6.98C16.584 1.895 14.11 1.87 11.474 1.87c-5.437 0-9.862 4.423-9.866 9.867-.002 1.71.465 3.38 1.353 4.87L1.936 21.05l4.71-1.896zm12.383-7.53c-.34-.17-2.015-.995-2.327-1.108-.31-.114-.537-.17-.763.17-.226.34-.877 1.108-1.075 1.33-.198.22-.397.25-.737.08-.34-.17-1.436-.53-2.736-1.69-1.012-.9-1.694-2.013-1.892-2.353-.198-.34-.02-.524.15-.694.154-.153.34-.397.51-.595.17-.198.226-.34.34-.567.113-.227.056-.425-.028-.595-.085-.17-.763-1.842-1.046-2.522-.276-.665-.554-.575-.763-.586-.198-.01-.425-.012-.653-.012-.226 0-.595.085-.907.425-.31.34-1.19 1.163-1.19 2.833 0 1.67 1.217 3.28 1.387 3.507.17.227 2.396 3.659 5.805 5.132.81.35 1.444.56 1.937.717.814.26 1.556.223 2.143.135.654-.1 2.015-.823 2.3-1.577.283-.755.283-1.402.198-1.537-.085-.136-.31-.22-.65-.39z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Fale Conosco no WhatsApp</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 3. SITE INSTITUCIONAL -->
+            <!-- ALTERE PARA O SEU DOMÍNIO PRINCIPAL FUTURAMENTE -->
+            <a href="index.html" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-8.814 11.25h2.923c.094-1.956.402-3.832.883-5.503-2.147 1.25-3.57 3.42-3.806 5.503zm3.876 1.5c.094 1.956.402 3.832.883 5.503-2.147-1.25-3.57-3.42-3.806-5.503h2.923zm5.688 5.727c-.771-1.63-1.341-3.565-1.611-5.727h3.223c-.27 2.162-.84 4.097-1.612 5.727zm-1.611-7.227c.27-2.162.84-4.097 1.611-5.727.772 1.63 1.342 3.565 1.612 5.727h-3.223zm5.611-5.727c.48 1.671.789 3.547.883 5.503h2.923c-.236-2.083-1.659-4.253-3.806-5.503zm.883 7.227c-.094 1.956-.403 3.832-.883 5.503 2.147-1.25 3.57-3.42 3.806-5.503h-2.923z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="link-text">Acesse Nosso Site Oficial</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 4. PORTFÓLIO DE EVENTOS -->
+            <!-- COLOQUE A URL DO PORTFÓLIO DE EVENTOS AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.5 4h-17c-1.38 0-2.5 1.12-2.5 2.5v13c0 1.38 1.12 2.5 2.5 2.5h17c1.38 0 2.5-1.12 2.5-2.5v-13c0-1.38-1.12-2.5-2.5-2.5zm-17 1.5h17c.55 0 1 .45 1 1v7.67l-3.33-3.33a.996.996 0 00-1.41 0L13.5 14l-4.08-4.08a.996.996 0 00-1.41 0L4.5 13.42V6.5c0-.55.45-1 1-1zm17 13h-17c-.55 0-1-.45-1-1v-2.17l4.25-4.25 4.08 4.08c.39.39 1.02.39 1.41 0l6.25-6.25 3.01 3.01V17.5c0 .55-.45 1-1 1zM8.5 10c.83 0 1.5-.67 1.5-1.5S9.33 7 8.5 7 7 7.67 7 8.5 7.67 10 8.5 10z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Portfólio de Eventos Corporativos</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 5. PORTFÓLIO DE FORMATURAS -->
+            <!-- COLOQUE A URL DO PORTFÓLIO DE FORMATURAS AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L0 8l12 6 9.6-4.8v6.3h2.4v-7.5L24 8 12 2zm0 14.4l-7.2-3.6v3.2l7.2 3.6 7.2-3.6v-3.2l-7.2 3.6z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="link-text">Portfólio de Formaturas</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 6. PORTFÓLIO DE CORRIDAS -->
+            <!-- COLOQUE A URL DO PORTFÓLIO DE CORRIDAS AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM12 11.5l-2.1-2.9c-.4-.5-1-.8-1.7-.8H2.5c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h4.1l1.8 2.5-3.3 6.9c-.3.6 0 1.4.6 1.7.6.3 1.4 0 1.7-.6l3.5-7.4 3 4.2v4.8c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-6c0-.5-.2-1-.6-1.3l-2.8-3.9 1.4-2.9 2.5 2.1c.3.3.7.4 1.1.4h3c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5h-2.2l-3-2.6c-.6-.5-1.5-.6-2.2-.2l-3.3 1.7 1.4-2.9H12v2.9z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Portfólio de Corridas & Esportes</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 7. GALERIA DE FOTOS -->
+            <!-- COLOQUE A URL DA GALERIA DE FOTOS AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h7v7H4zm9 0h7v7h-7zm-9 9h7v7H4zm9 0h7v7h-7z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="link-text">Galeria de Fotos do Evento</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 8. SOLICITAR ORÇAMENTO -->
+            <!-- COLOQUE A URL DO FORMULÁRIO DE ORÇAMENTO OU WHATSAPP AQUI FUTURAMENTE -->
+            <a href="index.html#contato" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="link-text">Solicitar Orçamento</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 9. CANAL NO YOUTUBE -->
+            <!-- COLOQUE A URL DO YOUTUBE AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Canal Oficial no YouTube</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 10. LINKEDIN -->
+            <!-- COLOQUE A URL DO LINKEDIN AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </span>
+                <span class="link-text">LinkedIn Corporativo</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 11. FACEBOOK -->
+            <!-- COLOQUE A URL DO FACEBOOK AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </span>
+                <span class="link-text">Página no Facebook</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- 12. DOWNLOAD DE APRESENTAÇÃO COMERCIAL -->
+            <!-- COLOQUE A URL DO ARQUIVO PDF DE DOWNLOAD AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="link-card">
+                <span class="link-icon-wrapper">
+                    <svg class="link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" fill="currentColor"/>
+                    </svg>
+                </span>
+                <span class="link-text">Baixar Apresentação Comercial (PDF)</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+        </main>
+
+        <!-- Seção de Destaques -->
+        <section class="highlights-section">
+            <h2 class="highlights-title">O Que Fazemos</h2>
+            <div class="highlights-grid">
+                
+                <!-- Card 1 -->
+                <div class="highlight-card">
+                    <div class="highlight-header">
+                        <div class="highlight-icon-circle">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="highlight-card-title">Fotografia Profissional</h3>
+                    </div>
+                    <p class="highlight-desc">Cobertura fotográfica cinematográfica e de alta definição para eternizar momentos.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="highlight-card">
+                    <div class="highlight-header">
+                        <div class="highlight-icon-circle">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="highlight-card-title">Organização</h3>
+                    </div>
+                    <p class="highlight-desc">Planejamento meticuloso e execução impecável de eventos sociais e corporativos.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="highlight-card">
+                    <div class="highlight-header">
+                        <div class="highlight-icon-circle">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="highlight-card-title">Ativações</h3>
+                    </div>
+                    <p class="highlight-desc">Ações de marca interativas e experiências sensoriais inesquecíveis.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção de Redes Sociais Rodapé -->
+        <section class="social-section">
+            
+            <!-- Instagram -->
+            <!-- COLOQUE A URL DO INSTAGRAM AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="social-btn" aria-label="Instagram">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+            </a>
+
+            <!-- Facebook -->
+            <!-- COLOQUE A URL DO FACEBOOK AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="social-btn" aria-label="Facebook">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <!-- COLOQUE A URL DO LINKEDIN AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="social-btn" aria-label="LinkedIn">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+
+            <!-- YouTube -->
+            <!-- COLOQUE A URL DO YOUTUBE AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="social-btn" aria-label="YouTube">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <!-- COLOQUE A URL DO WHATSAPP AQUI FUTURAMENTE -->
+            <a href="#" target="_blank" class="social-btn" aria-label="WhatsApp">
+                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.25 8.477 3.517 2.266 2.268 3.512 5.282 3.512 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.023-5.116-2.887-6.98C16.584 1.895 14.11 1.87 11.474 1.87c-5.437 0-9.862 4.423-9.866 9.867-.002 1.71.465 3.38 1.353 4.87L1.936 21.05l4.71-1.896zm12.383-7.53c-.34-.17-2.015-.995-2.327-1.108-.31-.114-.537-.17-.763.17-.226.34-.877 1.108-1.075 1.33-.198.22-.397.25-.737.08-.34-.17-1.436-.53-2.736-1.69-1.012-.9-1.694-2.013-1.892-2.353-.198-.34-.02-.524.15-.694.154-.153.34-.397.51-.595.17-.198.226-.34.34-.567.113-.227.056-.425-.028-.595-.085-.17-.763-1.842-1.046-2.522-.276-.665-.554-.575-.763-.586-.198-.01-.425-.012-.653-.012-.226 0-.595.085-.907.425-.31.34-1.19 1.163-1.19 2.833 0 1.67 1.217 3.28 1.387 3.507.17.227 2.396 3.659 5.805 5.132.81.35 1.444.56 1.937.717.814.26 1.556.223 2.143.135.654-.1 2.015-.823 2.3-1.577.283-.755.283-1.402.198-1.537-.085-.136-.31-.22-.65-.39z"/>
+                </svg>
+            </a>
+
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="links-footer">
+        <img src="./Assets/Logo/Logotipo.png" alt="Mídia Eventos" class="footer-logo">
+        <p class="footer-text">
+            Eternizando conquistas e realizando sonhos com organização impecável, fotografia de cinema e experiências de alto luxo em Maringá e região.
+        </p>
+        <div class="footer-copyright">
+            <p>&copy; <span id="year">2026</span> Mídia Eventos. Todos os direitos reservados. Maringá - PR.</p>
+        </div>
+    </footer>
+
+    <!-- Script para Ano do Rodapé Dinâmico -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
