@@ -382,12 +382,15 @@
             opacity: 0;
             transform: translateY(30px);
             filter: blur(8px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+            -webkit-filter: blur(8px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out, -webkit-filter 0.8s ease-out;
+            -webkit-transition: opacity 0.8s ease-out, transform 0.8s ease-out, -webkit-filter 0.8s ease-out;
         }
         .animate-on-scroll.animate {
             opacity: 1;
             transform: translateY(0);
             filter: blur(0);
+            -webkit-filter: blur(0);
         }
     </style>
 </head>
@@ -708,11 +711,23 @@
             };
 
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("animate");
-                        observer.unobserve(entry.target); // Animar apenas uma vez
+                let delay = 0;
+                // Filtrar e ordenar os elementos intersectados pela posição do topo para animar em ordem (stagger)
+                const intersectingEntries = entries
+                    .filter(entry => entry.isIntersecting)
+                    .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+
+                intersectingEntries.forEach(entry => {
+                    const el = entry.target;
+                    if (!el.classList.contains("animate")) {
+                        el.style.transitionDelay = `${delay}ms`;
+                        delay += 80; // 80ms de intervalo entre cada quadro
+                        
+                        requestAnimationFrame(() => {
+                            el.classList.add("animate");
+                        });
                     }
+                    observer.unobserve(el);
                 });
             }, observerOptions);
 
