@@ -1571,3 +1571,73 @@ h1, h2, h3, h4, h5, h6 {
         aspect-ratio: 3 / 4;
     }
 }
+
+/* ==========================================================================
+   BOTÃO DE WHATSAPP FLUTUANTE
+   ========================================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4), 0 0 0 1px rgba(37, 211, 102, 0.2);
+    z-index: 999;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px) scale(1.08);
+    background-color: #20ba5a;
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 1px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+/* Efeito de pulso discreto */
+.whatsapp-float::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    opacity: 0;
+    animation: whatsapp-pulse 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+}
